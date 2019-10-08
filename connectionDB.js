@@ -2,9 +2,9 @@
 
 const MongoClient = require('mongodb').MongoClient;
 // const uri = "mongodb+srv://carlos29:bmsgV9Umue8l2qQ5@cluster0-8hsgm.mongodb.net/BowheadHealth?retryWrites=true&w=majority";
-const uri = "mongodb://myMongoDb:27017/local"
+const uri = "mongodb://mongo:27017/local"
 const dbName = "local"
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+const client = new MongoClient(uri, { useUnifiedTopology: true, useNewUrlParser: true })
 
 class MongoConection {
 

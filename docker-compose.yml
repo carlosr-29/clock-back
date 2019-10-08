@@ -1,15 +1,16 @@
-version: '3'
+version: '2'
 services:
-  web:
+  app:
+    container_name: app
     build: .
     ports:
-      - "3000:3000"
-    depends_on:
-      - myMongoDb
+      - "8080:8080"
     links:
-      - myMongoDb
-  myMongoDb:
-    container_name: myMongoDb
+      - mongo
+  mongo:
+    container_name: mongo
     image: mongo
     ports:
-      - '27017:27017'
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
