@@ -5,12 +5,19 @@ services:
     build: .
     ports:
       - "8080:8080"
-    links:
-      - mongo
+    networks:
+      - mongo_network
   mongo:
     container_name: mongo
     image: mongo
+    expose:
+      - 27017
     ports:
       - "27017:27017"
     volumes:
       - ./data:/data/db
+    networks:
+      - mongo_network
+networks:
+  mongo_network:
+    name: mongo_network
