@@ -1,23 +1,15 @@
-version: '2'
+version: '3'
 services:
   app:
     container_name: app
     build: .
     ports:
-      - "8080:8080"
-    networks:
-      - mongo_network
+      - "3000:3000"
+    depends_on:
+      - mongo
   mongo:
-    container_name: mongo
     image: mongo
-    expose:
-      - 27017
     ports:
       - "27017:27017"
     volumes:
       - ./data:/data/db
-    networks:
-      - mongo_network
-networks:
-  mongo_network:
-    name: mongo_network
